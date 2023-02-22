@@ -1,4 +1,4 @@
-#include <Wire.h>
+#include <Wire.h>                                                                                // 필요 라이브러리 인클루드
 #include <Adafruit_MLX90614.h>
 #include <LiquidCrystal_I2C.h>      
 #include <SoftwareSerial.h>
@@ -12,11 +12,11 @@
 
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 
-LiquidCrystal_I2C lcd(0x27, 20, 4);  
-ThreeWire myWire(4,5,2); // IO, SCLK, CE
+LiquidCrystal_I2C lcd(0x27, 20, 4);               // LCD 모듈
+ThreeWire myWire(4,5,2); // IO, SCLK, CE          // RTC 모듈
 RtcDS1302<ThreeWire> Rtc(myWire);
   
-int count;
+int count;                                        // 전역변수 선언
 int p;
 int np;
 int th;
@@ -43,7 +43,7 @@ void setup() {
   Rtc.Begin();   
   pinMode(13,INPUT);                                            // 모터와 통신
     
-  lcd.setCursor(0, 0);                                      
+  lcd.setCursor(0, 0);                                          // lcd 내용 초기화
   lcd.print("                 ");
   lcd.setCursor(0, 1);                                   
   lcd.print("                 ");
@@ -53,7 +53,7 @@ void setup() {
   lcd.print("                 ");
  
   Rtc.Begin();
-  RtcDateTime compiled = RtcDateTime(__DATE__, __TIME__);  
+  RtcDateTime compiled = RtcDateTime(__DATE__, __TIME__);       // RTC 현재시간 입력
   if (!Rtc.IsDateTimeValid()) 
     {   Rtc.SetDateTime(compiled);   }
   if (Rtc.GetIsWriteProtected())
@@ -67,7 +67,7 @@ void setup() {
 }
 
 void loop() { 
-  E=0;
+  E=0;                                      // 현재상황 플래그 0 = 절차 진행중 / 1 = 절차 수행후 결과물 출력 및 저장
   lcd.setCursor(0, 0);                                   
   lcd.print(" Please          ");              
   lcd.setCursor(0, 1);                                  
@@ -223,7 +223,7 @@ void loop() {
      Min = 0;
      for(int i=0;i<12;i++){ A[i] = 0;}          // 초기화
     }   // if temp END
-}while(E==0);   // 모터수신 END
+}while(E==0);   // 절차 수행 완료
     RtcDateTime now = Rtc.GetDateTime();
     Serial.print("DATA,");     
     printDateTime(now);
