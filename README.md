@@ -41,12 +41,14 @@ QR코드 리더기를 이용해 사용자의 정보( 이름 전화전호 소속 
 물체의 온도와 공기중의 온도를 측정하는 센서를 이용해 사람의 체온만 받아들여 총 12개의 값을 읽어들이고  
 그중 센싱과정에서 튀는값을 제거하기 위해 최대온도와 최소온도를 제거해 평균을 계산후 평균계산  
 이 과정을 세번에 걸쳐 정상범위의 체온인지 아닌지 판단하는 알고리즘 설계 
-*사진 첨부
+![실행화면](https://raw.githubusercontent.com/ZZO-ZHO/final_project/main/photo/pnp.png)
+판단기준
 
 #### [ 4 ] 자동기록
 QR을 통해 읽어들인 정보와 측정한 체온과 현재시간을 정리해 엑셀에 저장하여
 확신자 발생기 확진자의 빠른 동선 파악 가능
-*사진첨부
+![실행화면](https://raw.githubusercontent.com/ZZO-ZHO/final_project/main/photo/plx_daq.png)
+실행결과
 
 #### [ 5 ] LCD 패널 및 부저 이용
 LCD 패널을 통해 사용자가 절차에 따라 QR코드를 스탠하고 체온을 측정하는등 순조롭게 진행되도록 도우며  
@@ -59,8 +61,13 @@ LCD 패널을 통해 사용자가 절차에 따라 QR코드를 스탠하고 체�
 이를 통해 각 단계에 서로 미칠수있는 영향을 배제해 절차수행이 수월하게 진행되도록 도움
 
 
-### 외형 및 회로연결
-*사진첨부
+### 외형 및 회로도
+![실행화면](https://raw.githubusercontent.com/ZZO-ZHO/final_project/main/photo/fin.png)
+완성 모습
+
+
+![실행화면](https://raw.githubusercontent.com/ZZO-ZHO/final_project/main/photo/plx_daq.png)
+회로도
 
 
 ### 사용방법 ? / 테스트코드
